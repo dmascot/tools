@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  devbox:
+    container_name: devbox-testrunner
+    image: devbox-tester
+    volumes:
+      - ../:/code_base
+    build:
+      context: .
+      dockerfile: ./test.dockerfile

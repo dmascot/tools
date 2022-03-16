@@ -1,0 +1,17 @@
+jobs:
+  run_tests:
+    docker: 
+      - image: ubuntu
+    steps:
+      - checkout
+      - run: 
+          name: Install Packages
+          command: apt-get update && apt-get install -y shunit2 dos2unix wget curl
+      - run: 
+          name: Run Unit Tests
+          command: ./run_tests.sh
+
+workflow:
+  version: 2
+  jobs:
+    - run_tests
