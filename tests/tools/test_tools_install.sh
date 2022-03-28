@@ -14,9 +14,9 @@ test_install_or_update_pyenv(){
     assertTrue "Expected: ${PYENV_DIR} to exist" "[ -d ${PYENV_DIR} ]"
 }
 
-test_install_or_bashGitPrompt(){
+test_install_or_update_bashGitPrompt(){
     BASH_GIT_PROMPT="${HOME}/.bash-git-prompt"
-    install_or_update_pyenv
+    install_or_update_bashGitPrompt
     assertTrue "Expected: ${BASH_GIT_PROMPT} to exist" "[ -d ${BASH_GIT_PROMPT} ]"
 }
 

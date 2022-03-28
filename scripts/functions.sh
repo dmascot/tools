@@ -15,19 +15,21 @@ print_error(){
 
 detect_environment(){
 
+    PROC_INIT=$(cat /proc/1/sched | head -n 1)
+
     if [[ "$(uname -r)" =~ "WSL" ]]
     then 
         DETECTED_ENVIRONMENT='WSL'
         DESIRED_USER=$USER
         DESIRED_HOSTNAME=$HOSTNAME
 
-        if ! [[ $(cat /proc/1/sched | head -n 1) =~ init ]]
+        if ! [[ $PROC_INIT =~ init ]]
         then
              DETECTED_ENVIRONMENT="WSL_DOCKER"
         fi
     else 
-        if [[  $(cat /proc/1/sched | head -n 1) =~ init ]]
-        then 
+        if [[  $PROC_INIT =~ ^(init) ]]
+        then
             DETECTED_ENVIRONMENT='UNSUPPORTED'
         else 
             DETECTED_ENVIRONMENT="DOCKER"
@@ -101,7 +103,7 @@ is_running_as_root(){
 
 #takes packages as a parameter
 is_package_installed(){
-    dpkg -L "$1" > /dev/null 2>&1 && return $?
+    dpkg-query --show --showformat='${db:Status-Status}' "${1}" | grep -q 'installed' > /dev/null 2>&1 && return $?
 }
 
 #takes packages as a parameter

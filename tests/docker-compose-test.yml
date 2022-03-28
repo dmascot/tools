@@ -1,9 +1,9 @@
 version: '3.4'
 
 services:
-  devbox:
-    container_name: devbox-testrunner
-    image: devbox-tester
+  sandbox:
+    container_name: sandbox-testrunner
+    image: sandbox-tester
     volumes:
       - ../:/code_base
     build:

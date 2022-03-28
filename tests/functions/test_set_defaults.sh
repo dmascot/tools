@@ -8,7 +8,7 @@ test_docker_defaults(){
     assertTrue "set_defaults"
     set_defaults
     assertEquals "ubuntu" "${DESIRED_USER}"
-    assertEquals "ubuntuhost" "${DESIRED_HOSTNAME}"
+    assertEquals "sandbox" "${DESIRED_HOSTNAME}"
 
     unset DETECTED_ENVIRONMENT
 }

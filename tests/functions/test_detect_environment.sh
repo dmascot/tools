@@ -33,6 +33,16 @@ test_detect_wsl_docker(){
     assertEquals "WSL_DOCKER" ${DETECTED_ENVIRONMENT}
 }
 
+test_detect_cicircle_docker(){
+    #mock kernel name 
+    alias uname="echo 'not-what-you-want-kernel'"
+    #mock $(cat /proc/1/sched | head -n 1) which is bash if it is docker and init if it is actual system
+    alias cat="echo 'docker-init (1, #threads:1)'"
+
+    detect_environment
+    assertEquals "DOCKER" ${DETECTED_ENVIRONMENT}
+}
+
 test_detect_unsupported(){
     #mock kernel name 
     alias uname="echo 'not-what-you-want-kernel'"

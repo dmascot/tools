@@ -3,7 +3,7 @@
 source scripts/functions.sh
 
 test_install_package(){
-    package_name='emacs'
+    package_name='vim'
 
     is_package_installed $package_name || ! is_running_as_root && startSkipping
 
