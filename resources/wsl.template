@@ -1,0 +1,23 @@
+[automount]
+enable = true
+mountFsTab = true
+root = /mnt/
+options = metadata,uid=1000,gid=1000,umask=22,fmask=22
+
+[network]
+generateHosts = false
+generateResolvConf = true
+hostname = ${DESIRED_HOSTNAME}
+
+[user]
+default = ${DESIRED_USER}
+
+[interops]
+enabled = true
+
+[wsl2]
+memory = 2GB
+processor = 2
+localhostForwarding = true
+guiApplications = true
+nestedVirtualization = true

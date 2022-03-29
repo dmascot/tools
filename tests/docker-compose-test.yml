@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  sandbox:
+    container_name: sandbox-testrunner
+    image: sandbox-tester
+    volumes:
+      - ../:/code_base
+    build:
+      context: .
+      dockerfile: ./test.dockerfile
