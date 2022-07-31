@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 NEW_USER='testUser1'
 

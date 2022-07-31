@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_exisiting_sudo_user(){
     #This test needs sudo/root access, if that is not the case skip it

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_with_two_unset_variable(){
     unset DETECTED_OS

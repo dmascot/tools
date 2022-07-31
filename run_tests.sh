@@ -18,7 +18,7 @@ __total_from_expression()
 }
 
 run_tests(){
-    for test_file in $(find tests/ -name "*.sh")
+    for test_file in $(find tests/linux/ -name "*.sh")
     do
         echo "========================="
         echo "### `basename $test_file`" 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/tools.sh
+source scripts/linux/tools.sh
 
 test_install_or_update_nvm(){
     NVM_DIR="${HOME}/.nvm"

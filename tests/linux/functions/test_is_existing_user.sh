@@ -1,4 +1,4 @@
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_existing_user(){
     assertTrue "Expected: User $USER to exist" "is_existing_user $USER"

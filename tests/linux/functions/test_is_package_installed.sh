@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_is_known_package_installed(){
     package_name='coreutils'

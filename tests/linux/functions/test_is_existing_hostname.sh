@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_existing_hostname(){
     assertTrue "Expected: Hostname to exist" "is_existing_hostname $HOSTNAME"
