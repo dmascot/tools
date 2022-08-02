@@ -3,34 +3,37 @@
 source scripts/linux/functions.sh
 
 test_docker_defaults(){
-    DETECTED_ENVIRONMENT="DOCKER"
+    DETECTED_PLATFORM="DOCKER"
 
-    assertTrue "set_defaults"
+    DESIRED_USER="ubuntu"
+    DESIRED_HOSTNAME="sandbox"
+
     set_defaults
+
     assertEquals "ubuntu" "${DESIRED_USER}"
     assertEquals "sandbox" "${DESIRED_HOSTNAME}"
 
-    unset DETECTED_ENVIRONMENT
+    unset DETECTED_PLATFORM
 }
 
 test_wsl_defaults(){
 
-    DETECTED_ENVIRONMENT="WSL"
+    DETECTED_PLATFORM="WSL"
+     set_defaults
+    assertEquals "${USER}" "${DESIRED_USER}"
+    assertEquals "${HOSTNAME}" "${DESIRED_HOSTNAME}"
 
-    assertTrue "set_defaults"
+    unset DETECTED_PLATFORM
+}
+
+test_GENERIC_defaults(){
+    DETECTED_PLATFORM="GENERIC"
+
     set_defaults
     assertEquals "${USER}" "${DESIRED_USER}"
     assertEquals "${HOSTNAME}" "${DESIRED_HOSTNAME}"
 
-    unset DETECTED_ENVIRONMENT
-}
-
-test_unsupported_defaults(){
-    DETECTED_ENVIRONMENT="UNSUPPORTED"
-
-    assertFalse "set_defaults"
-
-    unset DETECTED_ENVIRONMENT    
+    unset DETECTED_PLATFORM    
 }
 
 tearDown(){

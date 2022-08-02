@@ -9,9 +9,11 @@ test_install_or_update_nvm(){
 }
 
 test_install_or_update_pyenv(){
-    PYENV_DIR="${HOME}/.pyenv"
+    ## circleci already comes with pyenv installed so if root is set we can just install and give it a go ..
+    [[ -z $PYENV_ROOT ]] && PYENV_ROOT="${HOME}/.pyenv"
+
     install_or_update_pyenv
-    assertTrue "Expected: ${PYENV_DIR} to exist" "[ -d ${PYENV_DIR} ]"
+    assertTrue "Expected: ${PYENV_ROOT} to exist" "[ -d ${PYENV_ROOT} ]"
 }
 
 test_install_or_update_bashGitPrompt(){

@@ -11,7 +11,7 @@ test_add_user_to_sudoers(){
 
     if is_running_as_root 
     then 
-        create_user $NEW_USER
+        create_user $NEW_USER 2000
         add_user_to_sudoers $NEW_USER
     fi 
     
