@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_existing_file(){
     assertTrue "Expected: file to exist" "is_existing_file /etc/passwd"

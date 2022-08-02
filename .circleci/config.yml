@@ -1,7 +1,10 @@
 version: 2.1
 
+orbs:
+  win: circleci/windows@5.0
+
 jobs:
-  run_tests:
+  docker_tests:
     docker: 
       - image: ubuntu
     resource_class: small
@@ -14,8 +17,26 @@ jobs:
           name: Run Unit Tests
           command: ./run_tests.sh
 
+  windows_tests:
+      executor:
+        name: win/default
+        size: medium
+      steps:
+        - checkout
+        - run:
+            name: "Enable Script execution"
+            command: Set-Executionpolicy -Executionpolicy Bypass
+        - run:
+            name: "Install pester"
+            command: Install-Module -Name Pester -Force -SkipPublisherCheck
+        - run:
+            name: "run tests"
+            command: .\run_tests.ps1
+
+    
 workflows:
   version: 2
   testing:
     jobs:
-      - run_tests
+      - docker_tests
+      - windows_tests

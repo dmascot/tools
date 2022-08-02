@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 test_docker_defaults(){
     DETECTED_ENVIRONMENT="DOCKER"

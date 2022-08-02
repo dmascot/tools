@@ -1,4 +1,4 @@
-source scripts/functions.sh
+source scripts/linux/functions.sh
 
 NEW_HOSTNAME='testhostname'
 

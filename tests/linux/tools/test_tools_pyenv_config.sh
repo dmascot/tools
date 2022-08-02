@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source scripts/tools.sh
+source scripts/linux/tools.sh
 
 setUp(){
     MOCK_BASHRC_SOURCE='resources/empty_bashrc'
