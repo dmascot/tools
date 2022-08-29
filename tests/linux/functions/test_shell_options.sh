@@ -18,14 +18,14 @@ test_functions_with_user(){
 }
 
 test_functions_with_hostname(){
-    ARGS=('-h' 'devbox')
+    ARGS=('-n' 'devbox')
     shell_options "${ARGS[@]}"
     assertEquals "" "${DESIRED_USER}"
     assertEquals "devbox" "${DESIRED_HOSTNAME}"
 }
 
 test_functions_with_user_and_hostname(){
-    ARGS=('-u' 'justme' '-h' 'devbox')
+    ARGS=('-u' 'justme' '-n' 'devbox')
     shell_options "${ARGS[@]}"
     assertEquals "justme" "${DESIRED_USER}"
     assertEquals "devbox" "${DESIRED_HOSTNAME}"

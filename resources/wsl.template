@@ -2,7 +2,7 @@
 enable = true
 mountFsTab = true
 root = /mnt/
-options = metadata,uid=1000,gid=1000,umask=22,fmask=22
+options = metadata,uid=${DESIRED_UID},gid=${DESIRED_UID},umask=22,fmask=22
 
 [network]
 generateHosts = false

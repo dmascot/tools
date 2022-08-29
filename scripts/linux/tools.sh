@@ -13,7 +13,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"'
 
 PYENV_PROFILE_CONFIG_PART2='eval $(pyenv init --path)'
 
-PYENV_BASHRC_CONFIG='eval "$(pyenv init -)'
+PYENV_BASHRC_CONFIG='eval "$(pyenv init -)" '
 
 GITBASHPROMPT_BASHRC_CONFIG='if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]\
 then\
@@ -42,12 +42,12 @@ __git_installer(){
 #Generic function to check if configuration is in file
 #Param:
 # 1st ARG config file, that needs to be checked 
-# 2nd ARG config that needs to be tested, it cant accept multiline config too
+# 2nd ARG config that needs to be tested, it can accept multiline config too
 #feature: 
 # returns 12 if config file is not supplied
 # return 13 if config file is supplied but, config to be checked is missing
 # return 1 if grep exit with status 1 at any point, it instantly exits the loop and returns error status 1
-# return 0 this is default assuming there is no error when we run check and returns 1 as the end result if no errors are encounterd
+# return 0 this is default assuming there is no error when we run check and returns 0 as the end result if no errors are encounterd
 #  it break multiline config into an array, and grep the config in loop , if ever exit status is 1 , break and return error
 __is_config_in_file(){
 

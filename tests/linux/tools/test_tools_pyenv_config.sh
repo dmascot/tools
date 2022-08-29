@@ -10,12 +10,6 @@ setUp(){
     cp "${MOCK_BASHRC_SOURCE}" "${MOCK_PROFILE_DESTINATION}"
 }
 
-# test_nvm_config_when_present(){
-
-#     configure_nvm "${MOCK_BASHRC_DESTINATION}"
-#     assertTrue "EXPECTED: CONFIG to be present" "is_nvm_config_in_file ${MOCK_BASHRC_DESTINATION}"
-# }
-
 test_py_config_when_noting_present(){
     assertFalse "EXPECTED: CONFIG to be not present" "is_pyenv_config_in_file ${MOCK_BASHRC_DESTINATION} ${MOCK_PROFILE_DESTINATION}"
 }

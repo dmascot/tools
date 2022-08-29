@@ -9,7 +9,7 @@ test_create_user(){
     ! is_running_as_root && startSkipping
     assertFalse "Expected:User $NEW_USER to be non existing" "is_existing_user $NEW_USER"
 
-    if is_running_as_root; then  create_user $NEW_USER ; fi 
+    if is_running_as_root; then  create_user $NEW_USER 2000; fi 
 
     assertTrue "Expected:User $NEW_USER to exist" "is_existing_user $NEW_USER"
 }

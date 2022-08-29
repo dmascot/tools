@@ -1,0 +1,4 @@
+git shunit2  sudo
+dos2unix 
+wget
+curl
