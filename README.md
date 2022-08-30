@@ -1,4 +1,7 @@
-# Setup Scripts
+[![dmascot](https://circleci.com/gh/dmascot/tools/tree/main.svg?style=svg)](https://circleci.com/gh/dmascot/tools/?branch=main)
+
+
+# Tools
 
 ### **Purpose**
 it is not uncommon for developers to need to rebuild the development environment (especially VM based) for some or other reason. The goal of these setup scripts is to eliminate the manual task of setting up the base box over to least as simple as a running script on a given platform
@@ -24,33 +27,6 @@ Following is the list of tools that the setup script can install
 - Pyenv with virtenv **OR** Pyenv (for windows )
 <br>
 
-
-### **Usage**
-
-if you wish to install tools for current user
-```bash
-$ sudo ./setup.sh -u $USER
-```
-
-if you wish to create new user say `dev`
-```bash
-$ sudo ./setup.sh -u dev
-```
-
-if you want to install it for current user and update/change hostname to `devbox`
-```bash
-$ sudo ./setup.sh -u $USER -n devbox
-```
-
-if you wish to create new user say `dev` and update/change hostname to `devbox`
-```bash
-$ sudo ./setup.sh -u dev -h devbox
-```
-
-**WARNING** if you execute set up script without supplying any specific user as showen below,it will install tools for the root user
-```bash
-$ sudo ./setup.sh
-```
 ### **Additional tasks**
 
 - #### <u>**WSL**</u>
@@ -90,6 +66,45 @@ $ sudo ./setup.sh
  - For Windows, it is testd only for Windows 10 and, Windows 11
  - Some tests requires you to have a working internet connection or tests might fail in unpredictable manner
 
+### **Usage**
+
+- ##### <u>**Ubuntu**</u> 
+    Use one of the following command to setup tools along with additional features<br>
+
+    if you wish to install tools for current user
+    ```bash
+    $ sudo ./setup.sh -u $USER
+    ```
+
+    if you wish to create new user say `dev`
+    ```bash
+    $ sudo ./setup.sh -u dev
+    ```
+
+    if you want to install it for current user and update/change hostname to `devbox`
+    ```bash
+    $ sudo ./setup.sh -u $USER -n devbox
+    ```
+
+    if you wish to create new user say `dev` and update/change hostname to `devbox`
+    ```bash
+    $ sudo ./setup.sh -u dev -h devbox
+    ```
+
+    **WARNING** if you execute set up script without supplying any specific user as showen below,it will install tools for the root user
+    ```bash
+    $ sudo ./setup.sh
+    ```
+
+    if you wish to simply install tools for current user **without any of the additional feature**
+
+    ```bash
+    $ ./install_tools.sh
+    ```
+- ##### <u>**Windows**</u>
+    ```powershell
+    > ./install_tools.ps1
+    ```
  ### Tests
 
 - #### Pre-requesites
@@ -103,7 +118,7 @@ $ sudo ./setup.sh
         - curl
 
         ```bash
-        $sudo apt-get -y update && apt-get install -y git shunit2 sudo dos2unix wget curl
+        $ sudo apt-get -y update && apt-get install -y git shunit2 sudo dos2unix wget curl
         ```
     - ##### <u>**Windows**</u>
         1. Enable script execution
