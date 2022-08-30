@@ -12,7 +12,10 @@ jobs:
       - checkout
       - run: 
           name: Install Packages
-          command: apt-get update && apt-get install -y git shunit2 sudo dos2unix wget curl
+          command: apt-get update && apt-get install -y git sudo dos2unix wget curl gettext
+      - run:
+          name: Install ShellSpec
+          command: curl -fsSL https://git.io/shellspec | sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
       - run: 
           name: Run Unit Tests
           command: ./run_tests.sh
@@ -25,10 +28,13 @@ jobs:
       - checkout
       - run: 
           name: Install Packages
-          command: sudo apt-get update && sudo apt-get install -y git shunit2 sudo dos2unix wget curl
+          command: sudo apt-get update && sudo apt-get install -y git sudo dos2unix wget curl gettext
+      - run:
+          name: Install ShellSpec
+          command: curl -fsSL https://git.io/shellspec | sudo sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
       - run: 
           name: Run Unit Tests
-          command: ./run_tests.sh
+          command: unset -v NVM_DIR && ./run_tests.sh
 
   windows_tests:
       executor:
