@@ -1,0 +1,3 @@
+using envsubst makes me ${emotion}
+which works in ${line} set up too 
+can also have number like ${number}
