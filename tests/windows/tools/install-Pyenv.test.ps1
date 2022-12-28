@@ -1,5 +1,5 @@
 BeforeAll {
-    . $PWD\scripts\windows\tools.ps1
+    . $PWD\lib\windows\tools.ps1
 }
 
 Describe "Install-Pyenv" -Tag 'Integration' {

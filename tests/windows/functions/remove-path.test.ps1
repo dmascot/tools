@@ -1,5 +1,5 @@
 BeforeAll {
-    . $PWD\scripts\windows\functions.ps1
+    . $PWD\lib\windows\functions.ps1
 }
 
 
