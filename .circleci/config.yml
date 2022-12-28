@@ -12,13 +12,17 @@ jobs:
       - checkout
       - run: 
           name: Install Packages
-          command: apt-get update && apt-get install -y git sudo dos2unix wget curl gettext
+          command: apt-get update && apt-get install -y git sudo dos2unix wget curl gettext zsh
       - run:
           name: Install ShellSpec
           command: curl -fsSL https://git.io/shellspec | sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
       - run: 
-          name: Run Unit Tests
-          command: ./run_tests.sh
+          name: Run Unit Tests in BASH
+          command: unset -v NVM_DIR && echo "Running test in $SHELL" && ./run_tests.sh
+      - run: 
+          name: Run Unit Tests in ZSH
+          shell: /bin/zsh
+          command: unset -v NVM_DIR && export SHELL=/bin/zsh && echo "Running test in $SHELL" && ./run_tests.sh
   
   ubuntu_tests:
     machine:
@@ -28,13 +32,17 @@ jobs:
       - checkout
       - run: 
           name: Install Packages
-          command: sudo apt-get update && sudo apt-get install -y git sudo dos2unix wget curl gettext
+          command: sudo apt-get update && sudo apt-get install -y git sudo dos2unix wget curl gettext zsh
       - run:
           name: Install ShellSpec
           command: curl -fsSL https://git.io/shellspec | sudo sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
       - run: 
-          name: Run Unit Tests
-          command: unset -v NVM_DIR && ./run_tests.sh
+          name: Run Unit Tests in BASH
+          command: unset -v NVM_DIR && echo "Running test in $SHELL" && ./run_tests.sh
+      - run: 
+          name: Run Unit Tests in ZSH
+          shell: /bin/zsh
+          command: unset -v NVM_DIR && export SHELL=/bin/zsh && echo "Running test in $SHELL" && ./run_tests.sh
 
   windows_tests:
       executor:
