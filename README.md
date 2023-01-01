@@ -40,9 +40,13 @@ Following is the list of tools that the setup script will install
 <br>
 
 
-### **Usage**
+### Automated Install
+```bash
+$ curl https://raw.githubusercontent.com/dmascot/tools/main/install.sh | $SHELL
+```
+### **Manaul Install**
 
-- ##### <u>**Ubuntu**</u> 
+- ##### <u>**Linux/Mac OS**</u> 
     Use one of the following command to setup tools along with additional features<br>
 
     if you wish to install tools for current user
@@ -97,7 +101,7 @@ Following is the list of tools that the setup script will install
     - script to mount windows share (useful on VM with windows host)
     - workspace mount script ( useful for WSL or Linux storing code on seperate partion)
  - Setup options to choose if user wants to create new user,update hostname , install extra tools etc
- - Web install script
+ - ~~Web install script~~
  - KCov for codecoverage
 
  

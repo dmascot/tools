@@ -1,35 +1,36 @@
 ORI_HOME=$HOME
-HOME="$test_home/integration"
+export TOOLS_HOME="$test_home/integration"
+export HOME=$TOOLS_HOME
 
-mk_test_dir $HOME
-copy_profiles $HOME
+mk_test_dir $TOOLS_HOME
+copy_profiles $TOOLS_HOME
+
+source "$PWD/setup.sh" 1>/dev/null 2>&1
 
 Describe "Setup" Test:SetUpIntegration
 
-    source "$PWD/setup.sh" 2>&1 > /dev/null
-    
-    It "should have following file"
-        Assert is_existing_file "$HOME/.nvmrc"
-        Assert is_existing_file "$HOME/.pyenvrc"
-        Assert is_existing_file "$HOME/.git_promptrc"
+    It "should have following file and directory"
 
-        [[ $CURRENT_SHELL =~ bash ]] && local rcfile="$HOME/.bashrc" || local rcfile="$HOME/.zshrc"
+        Assert is_existing_file "$TOOLS_HOME/.nvmrc"
+        Assert is_existing_file "$TOOLS_HOME/.pyenvrc"
+        Assert is_existing_file "$TOOLS_HOME/.git_promptrc"
         
-        Assert config_is_in_file "$rcfile" "$HOME/.nvmrc"
-        Assert config_is_in_file "$rcfile" "$HOME/.pyenvrc"
-        Assert config_is_in_file "$rcfile" "$HOME/.git_promptrc"
+        [[ $CURRENT_SHELL =~ bash ]] && local rcfile="$HOME/.bashrc" || local rcfile="$HOME/.zshrc"
+        Assert config_is_in_file "$rcfile" "$TOOLS_HOME/.nvmrc"
+        Assert config_is_in_file "$rcfile" "$TOOLS_HOME/.pyenvrc"
+        Assert config_is_in_file "$rcfile" "$TOOLS_HOME/.git_promptrc"
 
-        is_bash_shell && Assert "$HOME/.profile" "$HOME/.bashrc"
+        is_bash_shell && Assert "$TOOLS_HOME/.profile" "$TOOLS_HOME/.bashrc"
 
-    End 
-
-    It "should have following dir"
-        Assert is_existing_directory "$HOME/.nvm"
-        Assert is_existing_directory "$HOME/.pyenv"
-        Assert is_existing_directory "$HOME/.git_prompt"     
+        Assert is_existing_directory "$TOOLS_HOME/.nvm"
+        Assert is_existing_directory "$TOOLS_HOME/.pyenv"
+        Assert is_existing_directory "$TOOLS_HOME/.git_prompt"     
     End 
 
 End
 
 rm_test_dir $test_home
-HOME=$ORI_HOME
+export HOME=$ORI_HOME
+unset rcfile
+unset TOOLS_HOME
+unset ORI_HOME

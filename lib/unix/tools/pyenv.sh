@@ -43,7 +43,7 @@ configure_pyenv(){
     local pyenv_config_file="$2"
     local pyenv_config='#Load PYENV\
 PYENV_DIR="'$pyenv_dir'"\
-command -v pyenv >/dev/null || PATH="$PYENV_ROOT/bin:$PATH"\
+command -v pyenv >/dev/null || PATH="$PYENV_DIR/bin:$PATH"\
 eval "$(pyenv init -)"'
 
     write_config_to_file "$pyenv_config_file" "$pyenv_config" && return $?
