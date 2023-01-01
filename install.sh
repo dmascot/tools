@@ -16,7 +16,7 @@ clone_repository(){
 
 run_setup(){
   echo "Installing Tools"
-  mkdir -p $DEST_DIR && cd $DEST_DIR && source setup.sh && cd - 
+  mkdir -p $DEST_DIR && cd $DEST_DIR && source setup.sh && cd - 1>/dev/null 2>&1
 }
 
 clean_up(){
