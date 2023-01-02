@@ -66,7 +66,7 @@ install_tools(){
   
     SUCCESS=$TRUE
 
-    get_git_prompt $GIT_PROMPT_DIR $GIT_BASH_PROMPT_URL && configure_git_prompt $GIT_PROMPT_DIR $GIT_PROMPTRC && load_tool_in_shell "$GIT_PROMPTRC" || SUCCESS=$FALSE
+    get_git_prompt $GIT_PROMPT_DIR $GIT_PROMPT_URL && configure_git_prompt $GIT_PROMPT_DIR $GIT_PROMPTRC && load_tool_in_shell "$GIT_PROMPTRC" || SUCCESS=$FALSE
 
     get_nvm $NVM_DIR $NVM_GIT_URL && configure_nvm $NVM_DIR $NVMRC && load_tool_in_shell "$NVMRC" || SUCCESS=$FALSE
 
