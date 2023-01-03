@@ -18,10 +18,15 @@ Automate installation and configuration of devlopment tools which we will using 
 setup script needs following pre-requisetes on your system
 
 #### Linux/Mac OS
-- working supported shell i.e. BASH or ZSH
-- git command
-- envsubst command ( via gettext )
+- #### Posix Shell
+    - working supported Posix Shell i.e. Bash or Zsh
+    - git command
+    - envsubst command ( via gettext )
 
+- #### Fish Shell
+    - Fish Shell
+    - git command
+    - bass (to enable running bash script in fish)
 #### Windows 10/11
 - powershell 7.x
 
@@ -41,29 +46,44 @@ Following is the list of tools that the setup script will install
 
 
 ### Automated Install
-```bash
-$ curl https://raw.githubusercontent.com/dmascot/tools/main/install.sh | $SHELL
-```
+- ##### <u>**Linux/Mac OS**</u> 
+    #### Posix Shell
+    ```bash 
+    curl https://raw.githubusercontent.com/dmascot/tools/main/install.sh | $SHELL
+    ```
+    #### Fish Shell
+    ```fish
+    curl https://raw.githubusercontent.com/dmascot/tools/main/install.fish | fish
+    ```
+<br>
+
 ### **Manaul Install**
 
 - ##### <u>**Linux/Mac OS**</u> 
-    Use one of the following command to setup tools along with additional features<br>
-
-    if you wish to install tools for current user
+    #### Posix Shell
     ```bash
     $ ./setup.sh
+    ```
+
+    #### Fish Shell
+    ```fish
+    ./setup.fish
     ```
 - ##### <u>**Windows**</u>
     ```powershell
     > ./setup.ps1
     ```
  ### Tests
+<br>
 
 - #### Pre-requesites
     Note that,this is in addition to pre-requisite listead above to be able to run tests
     - ##### <u>**Linux/Mac OS**</u>
+        #### Posix Shell
         - shellspec: Use [this link](https://github.com/shellspec/shellspec#installation) to find how to install shellspec and learn more about it
        
+       #### Fish Shell
+       - No testing
          
     - ##### <u>**Windows**</u>
         1. Enable script execution
@@ -74,13 +94,16 @@ $ curl https://raw.githubusercontent.com/dmascot/tools/main/install.sh | $SHELL
         ```powershell
         > Install-Moudle -Name Pester -Force -SkipPublisherCheck
         ```
+<br>
+
 - #### Running tests
     
     - #### <u>**Linux/Mac OS**</u>
-        shellspec needs access to only /tmp directory which should be there by default if not, it will fail to run test in an unpredictable manner
-        ```
-        $ ./run_tests.sh
-        ```
+        #### Posix Shell
+        - shellspec needs access to only /tmp directory which should be there by default if not, it will fail to run test in an unpredictable manner
+            ```
+            $ ./run_tests.sh
+            ```
     - #### <u>**Windows**</u>
          - *WARNING:* Executing test will install the tools, so if you are planning to run only tests, run 'em in some disposable instance such as VM
 
@@ -89,10 +112,12 @@ $ curl https://raw.githubusercontent.com/dmascot/tools/main/install.sh | $SHELL
         ```powershell
         > .\run_tests.ps1
         ```
-        
+<br>
+
  ### Todo
  
- <u>**Linux OS**</u> 
+ <u>**Linux OS**</u>
+ - ~~Fish Shell Support~~
  - user creation 
  - hostname update 
  - Docker image build support
