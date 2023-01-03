@@ -1,7 +1,6 @@
 set -x REPOSITORY "https://github.com/dmascot/tools.git"
 
-set -x DEST_DIR "$HOME/tools"
-
+set -x DEST_DIR "/tmp/tools"
 
 function is_prerequisites_satisfied --description "Check Prerequisites"
 
