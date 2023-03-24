@@ -9,7 +9,7 @@ function make_dir -a dest_dir -d "make dest_dir if it does not exist"
     # return true if directory is created
     if ! test -d $dest_dir
         mkdir -p $dest_dir
-        $status  
+  
     end
 
     return
