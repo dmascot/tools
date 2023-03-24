@@ -6,7 +6,7 @@ on:
       - closed
 
 jobs:
-  if_merged:
+  devtools_image:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
@@ -33,4 +33,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: dmascot/tools:latest
+          tags: dmascot/devtools:latest
