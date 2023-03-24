@@ -13,12 +13,12 @@ apt-get clean -y && \
 rm -rf /var/lib/apt/lists/*
 
 USER bashdev
-RUN /bin/bash -c 'cd /tools && source setup.sh'
+RUN ["/bin/bash","-c","cd /tools && source setup.sh"]
 
 USER zshdev
-RUN /bin/zsh -c 'cd /tools && source setup.sh'
+RUN ["/bin/zsh","-c","cd /tools && source setup.sh"]
 
 USER fishdev
-RUN /bin/fish -c 'cd /tools && source setup.fish'
+RUN ["/bin/fish","-c","cd /tools && source setup.fish"]
 
 CMD ["tail","-f","/dev/null"]
