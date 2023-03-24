@@ -34,6 +34,8 @@ function setup --description "run setup"
         echo "source $DEST_CONFIG_DIR/git_prompt.fish" > $FISHRC
         echo "source $DEST_CONFIG_DIR/pyenv.fish" >> $FISHRC
         echo "source $DEST_CONFIG_DIR/nvm.fish" >> $FISHRC
+        echo "source $FISHRC" >> $HOME/.config/fish/config.fish
+        
         true 
     else 
         false
