@@ -4,7 +4,9 @@ on:
   pull_request:
     types:
       - closed
-
+    paths:
+      - '**.sh'
+    
 jobs:
   devtools_image:
     if: github.event.pull_request.merged == true
@@ -34,12 +36,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: dmascot/devtools:latest
-
-      - 
-        name: Push Readme
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_READMESECRET }}
-          repository: dmascot/devtools
-          readme-filepath: ./docker/README.md
