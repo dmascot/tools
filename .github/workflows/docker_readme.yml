@@ -1,0 +1,23 @@
+name: docker-readme
+
+on:
+  pull_request:
+    types:
+      - closed
+    paths:
+      - 'docker/README.md'
+
+jobs:
+  devtools_image_readme:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - 
+        name: Publish Docker Readme
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_READMESECRET }}
+          repository: dmascot/devtools
+          readme-filepath: ./docker/README.md
