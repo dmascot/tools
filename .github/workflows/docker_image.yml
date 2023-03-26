@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push Image
         uses: docker/build-push-action@v4
         with:
           context: docker
@@ -36,10 +36,10 @@ jobs:
           tags: dmascot/devtools:latest
 
       - 
-        name: Docker Readme
+        name: Push Readme
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: dmascot/devtools
           readme-filepath: ./docker/README.md
