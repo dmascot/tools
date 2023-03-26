@@ -1,6 +1,6 @@
 FROM ubuntu
 
-COPY ../ /tools
+COPY . /tools
 COPY entrypoint.sh /usr/local/bin/entrypoint
 
 RUN apt-get update -y && \
