@@ -30,7 +30,16 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: docker
           platforms: linux/amd64,linux/arm64
           push: true
           tags: dmascot/devtools:latest
+
+      - 
+        name: Docker Readme
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: dmascot/devtools
+          readme-filepath: ./docker/README.md
