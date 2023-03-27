@@ -7,6 +7,7 @@ Describe "is_supported_shell()" Test:Unit
     #   SHELL           EXPECTED STATUS
         "bash"          "True"  $TRUE
         "zsh"           "True"  $TRUE
+        "qemuaarch64"   "True"  $TRUE
         "AnythingElse"  "False" $FALSE
     End
 

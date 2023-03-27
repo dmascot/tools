@@ -1,7 +1,7 @@
 
 #User Defined varibales
 typeset -a SUPPORTED_SHELLS
-SUPPORTED_SHELLS=("bash" "zsh")
+SUPPORTED_SHELLS=("bash" "zsh" "qemuaarch64")
 
 typeset -a SUPPORTED_UNIX_SYSTEM
 SUPPORTED_UNIX_SYSTEM=("Linux" "Darwin")
