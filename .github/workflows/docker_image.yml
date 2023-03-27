@@ -6,6 +6,7 @@ on:
       - closed
     paths:
       - '**.sh'
+      - 'docker/Dockerfile'
     
 jobs:
   devtools_image:
