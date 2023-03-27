@@ -1,6 +1,8 @@
 [![dmascot](https://circleci.com/gh/dmascot/tools/tree/main.svg?style=svg)](https://circleci.com/gh/dmascot/tools/?branch=main)
 
+[![docker-image](https://github.com/dmascot/tools/actions/workflows/docker_image.yml/badge.svg)](https://github.com/dmascot/tools/actions/workflows/docker_image.yml)
 
+[![docker-readme](https://github.com/dmascot/tools/actions/workflows/docker_readme.yml/badge.svg)](https://github.com/dmascot/tools/actions/workflows/docker_readme.yml)
 # Tools
 
 ### **Purpose**
