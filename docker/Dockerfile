@@ -28,7 +28,7 @@ USER root
 RUN rm -rf /tools && \
 rm -rf /bass
 
-#default user is bashdev
+#this sets bashdev as a default user
 USER bashdev
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint" ]
