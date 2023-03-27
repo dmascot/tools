@@ -30,7 +30,7 @@ end
 function run_setup --description "Run setup command"
   
   echo "Installing Tools"
-  mkdir -p $DEST_DIR && cd $DEST_DIR && source setup.fish && cd - 1>/dev/null 2>&1
+  cd $DEST_DIR && source setup.fish && cd - 1>/dev/null 2>&1
 
 end
 
