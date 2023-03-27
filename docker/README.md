@@ -23,9 +23,9 @@ docker pull dmascot/devtools
 
 
 ## Build-in Users
- - <u>**bashdev**</u> with default bash shell login,this is as well default user
- - <u>**zshdev**</u> with default zsh shell login
- - <u>**fshdev**</u> with default fish shell login
+ - `bashdev` with default bash shell login,this is as well default user
+ - `zshdev` with default zsh shell login
+ - `fshdev` with default fish shell login
 
 ## Usage
 The main process in this conatiner is a respective login shell, meaning if you simply press `ctrl +c` or type `exit` container will stop.If you want to exist container without stoping it,use the detach squence `ctrl+p ctrl+q`
@@ -72,9 +72,9 @@ The main process in this conatiner is a respective login shell, meaning if you s
 
 It can be fairly tricky to build multi arch image, the particular problem I was facing is while building arm64 image using github action it was not deployign tools for bash or zsh users and, failing
 
-After all debugging it boiled down to supply pre-defined ``CURRENT_SHELL`` varible in docker build instead of picking shell from process. Since, doing so would pick shell as ``qemuaarch64`` or some other qemu shell.
+After all debugging it boiled down to supply pre-defined ``CURRENT_SHELL`` varible in docker build instead of picking shell from process. Since, doing so would pick shell as ``qemuaarch64`` or some other qemu shell.However, being able to debug it locally helped process to nail the issue.
 
-To debug locally, I had to do following
+To debug locally,you may use following steps
 
 - create docker buildx
 ```
