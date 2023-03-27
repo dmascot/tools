@@ -1,7 +1,7 @@
 FROM ubuntu
 
 COPY . /tools
-COPY entrypoint.sh /usr/local/bin/entrypoint
+COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint
 
 RUN apt-get update -y && \
 apt-get install -y bash fish zsh git make gettext curl && \
