@@ -1,7 +1,7 @@
 
 #User Defined varibales
 typeset -a SUPPORTED_SHELLS
-SUPPORTED_SHELLS=("bash" "zsh" "qemuaarch64")
+SUPPORTED_SHELLS=("bash" "zsh")
 
 typeset -a SUPPORTED_UNIX_SYSTEM
 SUPPORTED_UNIX_SYSTEM=("Linux" "Darwin")
@@ -26,7 +26,7 @@ NOT_IMPLEMENTED=3
 UNIX_SYSTEM="$(uname -s)"
 HOME_DIR=$HOME
 DEFAULT_SHELL=$(echo $SHELL | sed 's:.*/::')
-CURRENT_SHELL=$(ps $$ | sed -n 2p | awk '{print $5}' | tr -d '-')
+CURRENT_SHELL=${CURRENT_SHELL:-$(ps $$ | sed -n 2p | awk '{print $5}' | tr -d '-')}
 
 TOOLS_HOME="${TOOLS_HOME:-$HOME_DIR}"
 

@@ -117,6 +117,7 @@ write_config_to_file(){
     return $TRUE
 }
 
+
 #note
 # for zsh config can be in $HOME/.zshrc and will be read by both interactive as well as non interactive shels
 # for bash, we need to add config in both .bashrc and .profile so interactaive-login and interactive nonlogin shell can set 

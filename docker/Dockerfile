@@ -4,7 +4,7 @@ COPY . /tools
 COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint
 
 RUN apt-get update -y && \
-apt-get install -y bash fish zsh git make gettext curl locales && \
+apt-get install -y bash fish zsh git make gettext locales && \
 useradd -m -s /bin/bash bashdev && \ 
 useradd -m -s /bin/fish fshdev && \
 useradd -m -s /bin/zsh zshdev && \
@@ -15,14 +15,14 @@ chmod +x /usr/local/bin/entrypoint && \
 git clone https://github.com/edc/bass
 
 USER bashdev
-RUN cd /tools && cat install.sh | /bin/bash
+RUN /bin/bash -c 'cd /tools && export CURRENT_SHELL=/bin/bash && source setup.sh; echo "setup status: $?"'
 
 USER zshdev
-RUN cd /tools && cat install.sh | /bin/zsh
+RUN /bin/zsh -c 'cd /tools && export CURRENT_SHELL=/bin/zsh && source setup.sh; echo "setup status: $?" '
 
 USER fshdev
 RUN cd /bass && make install && cd - && \
-cd /tools && cat install.fish | /bin/fish
+/bin/fish -c 'cd /tools && source setup.fish' 
 
 USER root
 RUN rm -rf /tools && \
