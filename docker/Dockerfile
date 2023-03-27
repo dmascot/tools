@@ -4,12 +4,13 @@ COPY . /tools
 COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint
 
 RUN apt-get update -y && \
-apt-get install -y bash fish zsh git make gettext curl && \
+apt-get install -y bash fish zsh git make gettext curl locales && \
 useradd -m -s /bin/bash bashdev && \ 
 useradd -m -s /bin/fish fshdev && \
 useradd -m -s /bin/zsh zshdev && \
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
+locale-gen en_US.UTF-8 && \
 chmod +x /usr/local/bin/entrypoint && \
 git clone https://github.com/edc/bass
 
