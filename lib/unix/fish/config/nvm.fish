@@ -1,4 +1,7 @@
 # ~/.config/fish/functions/nvm.fish
+
+set -gx NVM_SYMLINK_CURRENT true
+
 function nvm
   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
@@ -13,7 +16,7 @@ function load_nvm --on-variable="PWD"
   set -l default_node_version (nvm version default)
   set -l node_version (nvm version)
   set -l nvmrc_path (nvm_find_nvmrc)
-  set -lx NVM_SYMLINK_CURRENT true
+ 
   if test -n "$nvmrc_path"
     set -l nvmrc_node_version (nvm version (cat $nvmrc_path))
     if test "$nvmrc_node_version" = "N/A"
