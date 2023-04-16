@@ -49,4 +49,4 @@ NVM_DIR="'$nvm_dir'"\
 export NVM_SYMLINK_CURRENT=true'
 
     write_config_to_file "$nvm_config_file" "$nvm_config" && return $?
-} 
+}
