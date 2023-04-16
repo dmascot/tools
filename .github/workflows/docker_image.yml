@@ -6,6 +6,7 @@ on:
       - closed
     paths:
       - '**.sh'
+      - '**.fish'
       - 'docker/Dockerfile'
     
 jobs:
