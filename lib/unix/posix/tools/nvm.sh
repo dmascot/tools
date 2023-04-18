@@ -45,8 +45,7 @@ configure_nvm(){
     local nvm_config='#Load NVM\
 NVM_DIR="'$nvm_dir'"\
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"\
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"\
-export NVM_SYMLINK_CURRENT=true'
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"'
 
     write_config_to_file "$nvm_config_file" "$nvm_config" && return $?
 }
