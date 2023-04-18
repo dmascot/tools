@@ -3,8 +3,13 @@ FROM ubuntu
 COPY . /tools
 COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint
 
-RUN apt-get update -y && \
-apt-get install -y bash fish zsh git make gettext locales && \
+ENV TZ=Europe/London
+
+RUN apt-get update -y && apt-get install -y tzdata &&\
+ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &&\
+apt-get install -y bash fish zsh git make gettext locales \
+build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev&& \
 useradd -m -s /bin/bash bashdev && \ 
 useradd -m -s /bin/fish fshdev && \
 useradd -m -s /bin/zsh zshdev && \

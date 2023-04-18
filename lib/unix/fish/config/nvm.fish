@@ -1,7 +1,4 @@
 # ~/.config/fish/functions/nvm.fish
-
-set -gx NVM_SYMLINK_CURRENT true
-
 function nvm
   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
