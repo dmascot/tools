@@ -4,21 +4,21 @@
 Import-Module -Name PowerShellGet -Scope Local
 
 function Get-Username {
-   # Function simply returns current logged in name
+    # Function simply returns current logged in name
     return $env:USERNAME
 }
 
-function _webCleint(){
+function _webCleint() {
     param(
         [string]$URL,
         [string]$OutFile
     )
 
     $wc = New-Object net.webclient
-    $wc.DownloadFile($URL,$OutFile)
+    $wc.DownloadFile($URL, $OutFile)
     $wc.Dispose()
 }
-function Get-Web-File{
+function Get-Web-File {
     #Function downloads the file and returns download file location
     # Parameters
     #-----------
@@ -34,27 +34,27 @@ function Get-Web-File{
     # <Outfile , i.e. file download location >
 
     param(  [string]$URL,
-            [string]$SaveAs,
-            [string]$DownloadPath
-        )
+        [string]$SaveAs,
+        [string]$DownloadPath
+    )
 
     #Error: if URL is not supplied
     if ( [string]::IsNullOrEmpty($URL) ) { throw 'Error: $URL can not be an emptry string' }
 
     #if SaveAs is not supplied, get the filename from url
     if ( [string]::IsNullOrEmpty($SaveAs) ) { $SaveAs = split-path -Leaf $URL }
-    
+
     #if DownloadPath is not supplied, set it to default download directory
-    if ( [string]::IsNullOrEmpty($DownloadPath) ) { $DownloadPath = Join-path $env:HOME 'Downloads' }
+    if ( [string]::IsNullOrEmpty($DownloadPath) ) { $DownloadPath = Join-path $env:USERPROFILE 'Downloads' }
 
     #check if  download path exist or throw and error
-    if ( -not ( Test-Path -Path $DownloadPath ) ) { throw "Error: $DownloadPath does not exist"}
+    if ( -not ( Test-Path -Path $DownloadPath ) ) { throw "Error: $DownloadPath does not exist" }
 
     $OutFile = Join-Path $DownloadPath $SaveAs
 
-    #throw original exception 
-    try { 
-        #Invoke-WebRequest -Uri $URL -OutFile $Outfile 
+    #throw original exception
+    try {
+        #Invoke-WebRequest -Uri $URL -OutFile $Outfile
         _webCleint -URL $URL -OutFile $OutFile
     }
 
@@ -65,11 +65,11 @@ function Get-Web-File{
     return $OutFile
 }
 
-function Get-Module(){
+function Get-Module() {
     #Install module forcefully without prompt
     param( [string]$ModuleName)
-    
-    try {  
+
+    try {
         Install-Module $ModuleName -Force  -ErrorAction Stop
     }
     catch {
@@ -77,70 +77,69 @@ function Get-Module(){
     }
 }
 
-function isModuleInstalled(){
+function isModuleInstalled() {
     #Returns true if module is installed, false otherwise
     param( [string]$ModuleName)
 
     $counter = Get-InstalledModule | Where-Object { $_.Name -eq $ModuleName } | Measure-Object
 
-    if( $counter.Count -eq 0 ) { return $false }
+    if ( $counter.Count -eq 0 ) { return $false }
 
     return $true
 }
 
-function isCommandInstalled(){
+function isCommandInstalled() {
     #Returns true if command is installed, false otherwise
     param( [string]$commandName)
 
     try {
-        $counter = Get-Command $commandName  -ErrorAction Ignore | Measure-Object 
+        $counter = Get-Command $commandName  -ErrorAction Ignore | Measure-Object
 
-        if( $counter.Count -eq 0 ) { return $false }
+        if ( $counter.Count -eq 0 ) { return $false }
 
-        return $true    
+        return $true
     }
     catch {
         return $false
     }
 }
 
-function __refresh_environment_path(){
+function __refresh_environment_path() {
     #Refresh Environment Path after setting it
-    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
-function Set-UserEnvironmentPath(){
+function Set-UserEnvironmentPath() {
     #Add new path to $env:Path and refresh it
     param(
         [string]$Path
     )
 
-    if( -not ($env:Path -match  [regex]::Escape($Path) ))
-    {
-        [System.Environment]::SetEnvironmentVariable("PATH",$env:Path+";$Path",[EnvironmentVariableTarget]::User)
+    if ( -not ($env:Path -match [regex]::Escape($Path) )) {
+        [System.Environment]::SetEnvironmentVariable("PATH", $env:Path + ";$Path", [EnvironmentVariableTarget]::User)
     }
-    
+
     __refresh_environment_path
 
 }
 
 
-function Remove-Path(){
+function Remove-Path() {
     #Remove Path from the $env:Path for both user and system
 
     param(
         [string]$Path
     )
-    
-    if([regex]::matches($env:Path,$match)){
-        $system_paths = [System.Environment]::GetEnvironmentVariable("Path","Machine")
-        $user_paths = [System.Environment]::GetEnvironmentVariable("Path","User")
 
-        $new_system_path = $system_paths.Replace(";$Path","")
-        $new_uer_path = $user_paths.Replace(";$Path","")
+    if ([regex]::matches($env:Path, $match)) {
+        $system_paths = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
+        $user_paths = [System.Environment]::GetEnvironmentVariable("Path", "User")
 
-        [System.Environment]::SetEnvironmentVariable("PATH",$new_system_path,[EnvironmentVariableTarget]::Machine)
-        [System.Environment]::SetEnvironmentVariable("PATH",$new_uer_path,[EnvironmentVariableTarget]::User)
+        $new_system_path = $system_paths.Replace(";$Path", "")
+        $new_uer_path = $user_paths.Replace(";$Path", "")
+
+        [System.Environment]::SetEnvironmentVariable("PATH", $new_system_path, [EnvironmentVariableTarget]::Machine)
+        [System.Environment]::SetEnvironmentVariable("PATH", $new_uer_path, [EnvironmentVariableTarget]::User)
 
         __refresh_environment_path
     }

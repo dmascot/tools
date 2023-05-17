@@ -1,7 +1,8 @@
 . $PWD\lib\windows\functions.ps1
 . $PWD\lib\windows\tools.ps1
 
-function setup(){
+function setup() {
+
     Install-Git
     Get-PoshGit
     Install-NVM
