@@ -80,7 +80,7 @@ function Install-NVM {
         Unblock-File $outFile
         Start-Process $outFile -ArgumentList "/SILENT" -Wait
 
-        Set-UserEnvironmentPath -Path "$env:HOME\AppData\Roaming\nvm"
+        Set-UserEnvironmentPath -Path "$env:USERPROFILE\AppData\Roaming\nvm"
         Set-UserEnvironmentPath -Path "$env:ProgramFiles\nodejs"
 
         Remove-Path -Path "%NVM_HOME%"
