@@ -76,6 +76,8 @@ curl https://raw.githubusercontent.com/dmascot/tools/main/install.fish | fish
 
 #### PowerShell
 
+_You need to run Powershell as an Administrator, or you might see some errors regarding setting up environment variables_
+
 Check Powershell version
 
 ```powershell
@@ -87,7 +89,7 @@ make sure it prints 7 or higher number and once again, make sure git is already 
 Enable script execution
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy Bypass
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
 ```
 
 Execute WebInstall command
@@ -116,10 +118,12 @@ iex (iwr 'https://raw.githubusercontent.com/dmascot/tools/dev/install.ps1').Cont
 
 #### <u>**Windows**</u>
 
+_You need to run Powershell as an Administrator, or you might see some errors regarding setting up environment variables_
+
 Allow scripts to be executed
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy Bypass
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
 ```
 
 Execute setup script
@@ -148,10 +152,12 @@ No testing
 
 ##### <u>**Windows**</u>
 
+_You need to run Powershell as an Administrator, or you might see some errors regarding setting up environment variables_
+
 Enable script execution
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy Bypass
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
 ```
 
 Install / Update Pester module
