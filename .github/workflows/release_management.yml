@@ -26,7 +26,7 @@ jobs:
       - id: release
         uses: rymndhng/release-on-push-action@master
         with:
-          bump_version_scheme: norelease
+          bump_version_scheme: minor
           tag_prefix: v
 
       - name: Check Output Parameters
