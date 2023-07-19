@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 get_tool(){
     #This is a Generic installer function,it integrates functions ensure appropriate results
     #it clones git repository to given destination or prints appropriate error

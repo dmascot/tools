@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 get_nvm(){
     #This function clone nvm repo to destination directory
     # Depends on

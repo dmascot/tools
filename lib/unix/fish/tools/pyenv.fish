@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 function install_pyenv
     
     set -l pyenv_url "https://github.com/pyenv/pyenv"

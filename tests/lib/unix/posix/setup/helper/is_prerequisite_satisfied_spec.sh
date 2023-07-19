@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 Include "$PWD/lib/unix/posix.sh"
 
 ORI_UNIX_SYSTEM="$UNIX_SYSTEM"

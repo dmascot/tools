@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 is_prerequisites_satisfied(){
     # This function checks suitablity of system by running various checks common across all platfrom and OS
     # it ensures all prerequisite are met

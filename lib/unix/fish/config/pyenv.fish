@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 function activate-pyenv --description "load pyenv and virtualenv if found"
 
     if ! command -q pyenv

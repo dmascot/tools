@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 ORI_HOME=$HOME
 export TOOLS_HOME="$test_home/integration"
 export HOME=$TOOLS_HOME

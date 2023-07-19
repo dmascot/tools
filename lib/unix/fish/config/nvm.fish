@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 # ~/.config/fish/functions/nvm.fish
 function nvm
   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
