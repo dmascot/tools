@@ -5,62 +5,61 @@ orbs:
 
 jobs:
   docker_tests:
-    docker: 
+    docker:
       - image: ubuntu
     resource_class: small
     steps:
       - checkout
-      - run: 
+      - run:
           name: Install Packages
           command: apt-get update && apt-get install -y git sudo dos2unix wget curl gettext zsh
       - run:
           name: Install ShellSpec
-          command: curl -fsSL https://git.io/shellspec | sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
-      - run: 
+          command: wget -O- https://git.io/shellspec | sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
+      - run:
           name: Run Unit Tests in BASH
           command: unset -v NVM_DIR && echo "Running test in $SHELL" && ./run_tests.sh
-      - run: 
+      - run:
           name: Run Unit Tests in ZSH
           shell: /bin/zsh
           command: unset -v NVM_DIR && export SHELL=/bin/zsh && echo "Running test in $SHELL" && ./run_tests.sh
-  
+
   ubuntu_tests:
     machine:
       image: ubuntu-2004:2022.07.1
       resource_class: medium
     steps:
       - checkout
-      - run: 
+      - run:
           name: Install Packages
           command: sudo apt-get update && sudo apt-get install -y git sudo dos2unix wget curl gettext zsh
       - run:
           name: Install ShellSpec
           command: curl -fsSL https://git.io/shellspec | sudo sh -s -- --yes -p /usr/local/share/ -b /usr/bin/
-      - run: 
+      - run:
           name: Run Unit Tests in BASH
           command: unset -v NVM_DIR && echo "Running test in $SHELL" && ./run_tests.sh
-      - run: 
+      - run:
           name: Run Unit Tests in ZSH
           shell: /bin/zsh
           command: unset -v NVM_DIR && export SHELL=/bin/zsh && echo "Running test in $SHELL" && ./run_tests.sh
 
   windows_tests:
-      executor:
-        name: win/default
-        size: medium
-      steps:
-        - checkout
-        - run:
-            name: "Enable Script execution"
-            command: Set-Executionpolicy -Executionpolicy Bypass
-        - run:
-            name: "Install pester"
-            command: Install-Module -Name Pester -Force -SkipPublisherCheck
-        - run:
-            name: "run tests"
-            command: .\run_tests.ps1
+    executor:
+      name: win/default
+      size: medium
+    steps:
+      - checkout
+      - run:
+          name: "Enable Script execution"
+          command: Set-Executionpolicy -Executionpolicy Bypass
+      - run:
+          name: "Install pester"
+          command: Install-Module -Name Pester -Force -SkipPublisherCheck
+      - run:
+          name: "run tests"
+          command: .\run_tests.ps1
 
-    
 workflows:
   version: 2
   setup_scripts:
