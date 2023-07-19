@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 #######
 # Please add following lines at the end of .bashrc before using this script and, if anything is missing it will fail silently
 # SMB_SHARE_LOCATION="//<ip>/<share>"

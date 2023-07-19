@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 source "$PWD/lib/unix/fish.fish"
 
 function is_prerequisites_satisfied --description "Check Prerequisites"

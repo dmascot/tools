@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 Include "$PWD/lib/unix/posix/variables.sh"
 Include "$PWD/lib/unix/posix/functions.sh"
 Include "$PWD/lib/unix/posix/optional/mac.sh"

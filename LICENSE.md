@@ -1,3 +1,10 @@
+<!--
+ Copyright (c) 2023 DMascot
+ 
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 

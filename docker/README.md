@@ -1,3 +1,10 @@
+<!--
+ Copyright (c) 2023 DMascot
+ 
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+
 # devtools
 
 This builds linux based image containting devlopment tools from [tools repository](https://github.com/dmascot/tools).

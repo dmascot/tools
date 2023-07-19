@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 get_git_prompt(){
     #This function clone git prompt repo to destination directory
     # Depends on

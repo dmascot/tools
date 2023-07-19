@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 script_path="$(pwd -P )/lib/unix/posix"
 
 source "$script_path/variables.sh"

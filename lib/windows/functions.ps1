@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 
 
 #Import this module , esle Install-Module/Get-InstalledModule commands would not work

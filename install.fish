@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 set -x REPOSITORY "https://github.com/dmascot/tools.git"
 
 set -x DEST_DIR "/tmp/tools"

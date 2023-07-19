@@ -1,3 +1,8 @@
+# Copyright (c) 2023 DMascot
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 Describe "NVM_GIT_URL in variables.sh"
 
     It "is default when not set"
