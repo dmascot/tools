@@ -1,0 +1,60 @@
+/* cSpell:disable */
+{
+  "name": "tools-dev",
+  "dockerFile": "Dockerfile",
+  "runArgs": ["--hostname", "tools-dev"],
+  "mounts": ["source=${localWorkspaceFolder},target=/vscode/tools,type=bind"],
+  "workspaceFolder": "/vscode/tools",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "fabiospampinato.vscode-diff",
+        "ms-azuretools.vscode-docker",
+        "codezombiech.gitignore",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "lextudio.restructuredtext",
+        "timonwong.shellcheck",
+        "ymotongpoo.licenser",
+        "JustSxm.another-file-header",
+        "psioniq.psi-header",
+        "github.vscode-github-actions"
+      ],
+
+      "settings": {
+        //vscode settings
+        "task.problemMatchers.neverPrompt": {
+          "shell": true
+        },
+        "breadcrumbs.enabled": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": true,
+        "editor.minimap.enabled": false,
+        "editor.tabCompletion": "on",
+        "files.exclude": {
+          "**/.DS_Store": true,
+          "**/.git": true,
+          "**/Thumbs.db": true
+        },
+        "files.trimTrailingWhitespace": true,
+        "git.autofetch": true,
+
+        //licenser settings
+        "licenser.projectName": "Tools",
+        "licenser.author": "DMascot",
+
+        //spellcheck settings
+        "cSpell.language": "en-GB",
+        "cSpell.enabled": true,
+
+        //docker file formatter
+        "[dockerfile]": {
+          "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+        }
+      }
+    }
+  }
+}
