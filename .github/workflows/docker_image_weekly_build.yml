@@ -1,4 +1,4 @@
-name: docker-image-weekly-build
+name: docker-image-weekly
 
 on:
   schedule:
