@@ -1,13 +1,8 @@
 name: docker-image
 
 on:
-  pull_request:
-    types:
-      - closed
-    paths:
-      - "**.sh"
-      - "**.fish"
-      - "docker/Dockerfile"
+  schedule:
+    - cron: "0 7 * * 0"
 
 jobs:
   devtools_image:
